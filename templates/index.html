@@ -3,3 +3,13 @@
 {% block title %}
 Quotes
 {% endblock %}
+
+{% block main %}
+    {% for quote in quotes|sort(attribute='time', reverse=True) %}
+        <div class="quote">
+            <h4 class="text">{{ quote['text'] }}</h4>
+            <p class="author">{{ quote['author'] }}</p>
+            <p class="time">{{ quote['time']|datetime }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
